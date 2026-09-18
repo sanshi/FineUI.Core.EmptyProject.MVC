@@ -20,7 +20,7 @@ namespace FineUI.Core.EmptyProject.MVC
             Configuration = configuration;
         }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // 登记应用使用的服务。
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDistributedMemoryCache();
@@ -37,12 +37,12 @@ namespace FineUI.Core.EmptyProject.MVC
             services.AddFineUI(Configuration);
 
             // AddFineUI 已自动登记 FineUI 专属模型绑定器。
-            services.AddControllersWithViews().AddNewtonsoftJson();
+            services.AddControllersWithViews().AddNewtonsoftJson().AddRazorRuntimeCompilation();
 
 
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        // 配置应用的 HTTP 请求管道。
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

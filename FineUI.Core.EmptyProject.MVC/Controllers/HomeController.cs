@@ -52,13 +52,13 @@ namespace FineUI.Core.EmptyProject.MVC.Controllers
         }
 
 
-        // GET: Themes
+        // 主题选择页面
         public IActionResult Themes()
         {
             return View();
         }
 
-        // GET: Error
+        // 错误页面
         public IActionResult Error()
         {
             return View();
