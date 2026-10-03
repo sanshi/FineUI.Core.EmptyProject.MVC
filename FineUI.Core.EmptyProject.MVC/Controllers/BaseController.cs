@@ -1,3 +1,5 @@
+using FineUI.Core.EmptyProject.MVC;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +15,17 @@ namespace FineUI.Core.EmptyProject.MVC.Controllers
 {
     public class BaseController : Controller
     {
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            base.OnActionExecuting(context);
+
+            if (HttpMethods.IsGet(Request.Method) && context.Result == null)
+            {
+                // 公共偏好先于单页设置；AJAX 回发继续使用恢复后的页面配置。
+                AppPageManagerInitializer.Initialize(PageManager.Instance, Request);
+            }
+        }
+
         /// <summary>
         /// 显示通知对话框
         /// </summary>
