@@ -58,10 +58,9 @@ namespace FineUI.Core.EmptyProject.MVC
 
             app.UseRouting();
 
-            app.UseAuthorization();
-
             // FineUI 中间件（确保 UseFineUI 位于 UseEndpoints 的前面）
             app.UseFineUI();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
