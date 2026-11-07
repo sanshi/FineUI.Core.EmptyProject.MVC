@@ -82,7 +82,9 @@
 
     <div id="header" class="f-widget-header f-mainheader" style="display:none;">
         <div class="header-left">
-            <f:Button ID="btnCollapseSidebar" CssClass="icononlyaction" ToolTip="折叠/展开侧边栏" IconAlign="Top" IconFont="_Fold" EnableDefaultState="false" TabIndex="-1" ClickHandler="onFoldClick"></f:Button>
+            @(F.Button().ID("btnCollapseSidebar").CssClass("icononlyaction")
+                .ToolTip("折叠/展开侧边栏").IconAlign(IconAlign.Top).IconFont(IconFont._Fold)
+                .EnableDefaultState(false).TabIndex(-1).ClickHandler("onFoldClick"))
         </div>
         <div class="header-right">
             @(F.Button().EnableDefaultCorner(false).EnableDefaultState(false).IconFont(IconFont._Skin).IconAlign(IconAlign.Top).ToolTip("主题仓库").ID("btnThemeSelect").CssClass("icononlyaction themes").ClickHandler("onThemeSelectClick"))
